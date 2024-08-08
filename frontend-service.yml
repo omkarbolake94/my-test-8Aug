@@ -1,15 +1,16 @@
 apiVersion: v1
-kind: service
-metadata:
-  name: frontend-service
+kind: Service
+metadata: 
+  name: front-service
   namespace: 2tapp
   labels:
     flower: rose
 spec:
   type: LoadBalancer
-  selector: 
+  selector:
     flower: rose
   ports:
     - protocol: TCP
-	  port: 80
-	  targetPort: 8000
+      port: 80
+      targetPort: 8000
+    
