@@ -1,19 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: frontend-deploy
+metadata: 
+  name: front-deploy
+  labels:
+    flower: rose
   namespace: 2tapp
 spec:
   selector:
     matchLabels:
-	  flower: rose
+      flower: rose
   replicas: 2
   template:
-    metadata:
-	  name: frontend-container
-	spec:
-	  containers:
-	    - name: my-container
-		  image: trainwithshubham/flaskapp:latest
-		  ports:
-		    - containerPort: 8000
+    metadata: 
+      name: fron-container
+      labels:
+        flower: node
+    spec:
+      containers: 
+        - name: my-container
+	  image: trainwithshubham/flaskapp:latest
+          ports:
+	    - containerports: 8000
