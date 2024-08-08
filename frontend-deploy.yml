@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+  namespace: 2tapp
+spec:
+  selector:
+    matchLabels:
+	  flower: rose
+  replicas: 2
+  template:
+    metadata:
+	  name: frontend-container
+	spec:
+	  containers:
+	    - name: my-container
+		  image: trainwithshubham/flaskapp:latest
+		  ports:
+		    - containerPort: 8000
